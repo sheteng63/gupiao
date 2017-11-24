@@ -19,7 +19,7 @@ class AliApiData:
 
 
 class JuheApiData:
-    def __init__(self, code, type = 1):
+    def __init__(self, code=None, type=None):
         self.http = apihttp.apicommonhttp("http://web.juhe.cn:8080/finance/stock/hs") \
             .addBody("key", "0d2246a147ea4b8c676a18763b2bce0c")
         self.code = code

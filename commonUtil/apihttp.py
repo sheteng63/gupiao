@@ -1,6 +1,6 @@
 import requests
 import json
-
+import json
 class apicommonhttp:
     def __init__(self, url):
         self.url = url
@@ -18,8 +18,8 @@ class apicommonhttp:
 
     def get(self):
         r = requests.get(self.url, self.bodys, headers=self.headers)
-        return r.text
+        return json.loads(r.text)
 
     def post(self):
         r = requests.post(self.url, self.bodys, headers=self.headers)
-        return r.text
+        return json.loads(r.text)
