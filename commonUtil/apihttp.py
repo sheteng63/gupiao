@@ -1,6 +1,5 @@
 import requests
 import json
-import json
 class apicommonhttp:
     def __init__(self, url):
         self.url = url
@@ -10,6 +9,11 @@ class apicommonhttp:
 
     def addHeaders(self, k, v):
         self.headers[k] = v
+        return self
+
+
+    def addHeaders(self,v):
+        self.headers = v
         return self
 
     def addBody(self, k, v):
@@ -22,4 +26,5 @@ class apicommonhttp:
 
     def post(self):
         r = requests.post(self.url, self.bodys, headers=self.headers)
-        return json.loads(r.text)
+        print(r.cookies)
+        return r

@@ -1,11 +1,12 @@
-import time
 
-from dataAsy import dataAcquire
+
+from commonUtil import apihttp
 import json
 
-# data = dataAcquire.AliApiData("sz000050").getData("2017-11-23", "2017-11-22")
+http = apihttp.apicommonhttp("http://127.0.0.1:7980/user/login").addBody("username","sheteng").addBody("pwd","123456").post()
+headers = http.headers
+print(json.loads(http.text))
+http2 = apihttp.apicommonhttp("http://127.0.0.1:7980/user/logout").addHeaders(headers).post()
+print(json.loads(http2.text))
 
-while 1:
-    data = dataAcquire.JuheApiData("sz000050").getNowData()
-    print(data['result'][0]['dapandata']['dot'])
-    time.sleep(10)
+
